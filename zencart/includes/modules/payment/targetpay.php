@@ -224,7 +224,7 @@ class targetpay {
         }
 
         $ideal_description = trim(strip_tags($ideal_description));
-        $ideal_description = ereg_replace("[^( ,[:alnum:])]", '*', $ideal_description);
+        $ideal_description = preg_replace("/[^A-Za-z0-9 ]/", '*', $ideal_description);
         $ideal_description = substr($ideal_description,0,31); /* Max. 32 characters */
 
         if(empty($ideal_description)) $ideal_description = 'nvt';
